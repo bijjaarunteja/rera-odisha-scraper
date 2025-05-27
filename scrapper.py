@@ -1,19 +1,16 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
-# Use full path to chromedriver.exe
-service = Service("C:/Users/Arun teja/Desktop/repo/chromedriver.exe")
+# Set up Chrome driver (make sure chromedriver is in your PATH)
+driver = webdriver.Chrome()
 
-driver = webdriver.Chrome(service=service)
+# Open the project list page
+driver.get("https://rera.odisha.gov.in/projects/project-list")
 
-driver.get("https://www.google.com")
-time.sleep(3)
+time.sleep(5)  # wait for page to load fully
 
-search_box = driver.find_element(By.NAME, "q")
-search_box.send_keys("OpenAI ChatGPT")
-search_box.submit()
+# TODO: Add code here to find the first 6 projects and click 'View Details'
 
-time.sleep(20)
+# Remember to close the driver at the end
 driver.quit()
